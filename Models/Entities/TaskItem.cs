@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TaskMasterAPI.Models.Entities
 {
@@ -21,5 +22,11 @@ namespace TaskMasterAPI.Models.Entities
 
         [Range(1, 3)]
         public int Priority { get; set; } = 2; // 1: Low, 2: Medium, 3: High
+
+        // Relación con usuario
+        [Required]
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public User User { get; set; }  
     }
 }

@@ -2,7 +2,7 @@
 
 namespace TaskMasterAPI.Models.DTOs
 {
-    public class TaskDTO
+    public class UpdateTaskDTO
     {
         [Required]
         [MaxLength(100)]
@@ -14,6 +14,8 @@ namespace TaskMasterAPI.Models.DTOs
         public DateTime? DueDate { get; set; }
 
         [Range(1, 3)]
-        public int Priority { get; set; } = 2; // Valor por defecto: Medium
+        public int Priority { get; set; }
+
+        public bool IsCompleted { get; set; }
     }
 }
