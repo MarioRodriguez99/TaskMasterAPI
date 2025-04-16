@@ -1,43 +1,40 @@
-API de Gestión de Tareas 
-Una API RESTful desarrollada en .NET para administrar tareas, con autenticación JWT y operaciones CRUD.
-########################
-Características principales 
-✔ Autenticación JWT (registro, login y autorización).
-✔ CRUD completo para tareas (crear, leer, actualizar, eliminar).
-✔ Swagger UI para documentación interactiva.
-✔ Base de datos (SQL Server, PostgreSQL, MySQL, etc.).
-#########################
-Tecnologías utilizadas ⚙️
+Task Management API 
+Description 📌
+RESTful API built with .NET for task management featuring:
+✔ JWT Authentication (register/login).
+✔ CRUD operations for tasks.
+✔ SQL Server database.
+
+Technologies ⚙️
 .NET 6/7/8
 
-Entity Framework Core (ORM)
+Entity Framework Core
 
 JWT (JSON Web Tokens)
 
 Swagger/OpenAPI
 
-SQL Server 
-######################
-Cómo empezar 🛠️
-Requisitos previos
+SQL Server
+Installation 🛠️
+Requirements
 .NET SDK
 
-Base de datos configurada (SQL Server)
+SQL Server
 
-Postman o similar para probar endpoints
-######################
-Contribuir 🤝
-¡Las contribuciones son bienvenidas! Si encuentras un error o quieres mejorar algo:
+Postman (optional)
+Endpoints 📡
+Authentication
+POST /api/auth/register → User registration.
 
-Haz un fork del proyecto.
+POST /api/auth/login → Login (get JWT).
 
-Crea una rama (git checkout -b feature/nueva-funcionalidad).
+Tasks (requires JWT token)
+GET /api/tasks → List all tasks.
 
-Haz commit de tus cambios (git commit -m "Agrega nueva funcionalidad").
+POST /api/tasks → Create task.
 
-Haz push a la rama (git push origin feature/nueva-funcionalidad).
+PUT /api/tasks/{id} → Update task.
 
-Abre un Pull Request.
-
-Licencia 📜
-Este proyecto está bajo la licencia MIT.
+DELETE /api/tasks/{id} → Delete task.
+License 📜
+MIT License.
