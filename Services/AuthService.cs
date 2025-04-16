@@ -7,7 +7,7 @@ using TaskMasterAPI.Models.DTOs;
 using TaskMasterAPI.Models.Responses;
 using TaskMasterAPI.Models.Entities;
 using Org.BouncyCastle.Crypto.Generators;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace TaskMasterAPI.Services
 {
@@ -56,6 +56,7 @@ namespace TaskMasterAPI.Services
 
         public async Task<AuthResponse> Register(RegisterDTO registerDto)
         {
+            // Verifica si el email ya existe usando el DbContext correcto
             if (await _context.Users.AnyAsync(u => u.Email == registerDto.Email))
             {
                 return new AuthResponse(false, "Email already in use");
@@ -75,9 +76,6 @@ namespace TaskMasterAPI.Services
             var token = GenerateJwtToken(user);
             return new AuthResponse(true, "User registered successfully", token);
         }
-
-       
-
         private string GenerateJwtToken(User user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
