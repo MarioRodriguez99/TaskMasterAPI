@@ -21,7 +21,7 @@ Requirements
 
 SQL Server
 
-Postman (optional)
+Postman 
 Endpoints 📡
 Authentication
 POST /api/auth/register → User registration.
